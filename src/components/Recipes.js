@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/Searchbar.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS for styling
+import RecipesDetails from './RecipesDetails';
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -138,7 +139,10 @@ const Recipes = () => {
           <div key={recipe._id} className="Recipe">
             <h2>{recipe.title}</h2>
             <img src={recipe.imageUrl} alt={recipe.title} />
+            <RecipesDetails fullText={`${recipe.instructions} Ingredients: ${recipe.ingredients.join(', ')}`} />
+        {/* <div>
             <h3>Ingredients:</h3>
+            
             <ul>
               {recipe.ingredients.length > 0 && (
                 <ul>
@@ -163,7 +167,9 @@ const Recipes = () => {
                   ))}
                 </ol>
               )}
-            </div>
+            </div> */}
+
+
 
             <button
               className="delete-button"
